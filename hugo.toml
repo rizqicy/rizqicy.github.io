@@ -1,0 +1,5 @@
+baseURL = 'https://rizqi.cy/'
+languageCode = 'en-us'
+title = 'rizqi.cy (Work In Progess)'
+
+theme = 'nostyleplease'
