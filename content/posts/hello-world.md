@@ -6,8 +6,8 @@ draft = false
 
 Hi,  
 
-this is my first ever website I've built. I will use this as my playground and hopefully I can learn more about web development along the way.
+This is the first website I've ever built. I will use this as my playground and hopefully, I can learn more about web development along the way.
 
 
-cheers 🍻
+Cheers 🍻
 
