@@ -148,12 +148,17 @@ const configuration = defineCollection({
       /**
        * The title displayed in the hero section.
        */
-      title: z.string().default("Zaggonaut"),
+      title: z.string().default("Hero Section"),
 
       /**
        * The subtitle displayed in the hero section.
        */
-      subtitle: z.string().default("Retro-Inspired Theme &<br>Built for Astro"),
+      subtitle: z.string().default("subtitle of hero section"),
+
+      /**
+       * The subtitle displayed in the hero section.
+       */
+      description: z.string().default("description of hero section"),
 
       /**
        * The URL of the hero image, used as a background image in the hero section.
@@ -178,7 +183,7 @@ const configuration = defineCollection({
       /**
        * The name of the site owner or author, used in various places throughout the site.
        */
-      name: z.string().default("Zaggonaut"),
+      name: z.string().default("personal web"),
 
       /**
        * The GitHub profile URL of the site owner or author.
@@ -231,7 +236,6 @@ const configuration = defineCollection({
      * This defines the URLs for the main navigation links.
      */
     menu: z.object({
-      home: z.string().default("/"),
       projects: z.string().default("/projects"),
       blog: z.string().default("/blog"),
       /** Add other menu items here **/
@@ -244,7 +248,7 @@ const configuration = defineCollection({
  * It loads markdown files from the `content/blogs` directory and defines the schema for each blog post.
  */
 const blog = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./content/blogs" }),
+  loader: glob({ pattern: "**/*.md", base: "./content/blog" }),
   schema: z
     .object({
       /**

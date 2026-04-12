@@ -6,7 +6,16 @@ import { getConfigurationCollection } from "../../lib/utils";
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
 	const { data: config } = await getConfigurationCollection();
-	return posts.map((article) => ({
+
+    // get markdown headings data
+    const headings = await Promise.all(
+        posts.map(async (post) => {
+          const data = await render(post);
+          return data.headings;
+        })
+    );
+
+    return posts.map((article, index) => ({
 		params: { id: article.data.slug },
 		props: {
 			article: {
@@ -14,6 +23,7 @@ export async function getStaticPaths() {
 				data: {
 					...article.data,
 					url: `${config.site.baseUrl}/blog/${article.data.slug}`,
+                    headings: headings[index],
 				},
 			},
 		},
