@@ -9,7 +9,7 @@ const { headings } = Astro.props;
 const filteredHeadings = headings.filter((heading) => heading.depth <= 2);
 ---
 
-<nav class="p-4 max-md:hidden sticky top-18 self-start order-1 min-width-500">
+<nav class="p-4 max-lg:hidden sticky top-18 self-start order-1">
   <div class="zag-bg zag-border-l">
   <h2 class="mx-4 font-bold">Table of Contents</h2>
   <ul class="mx-8">
