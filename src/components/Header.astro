@@ -27,9 +27,9 @@ const { isHome } = Astro.props;
       </svg>
     </button>
   </div>
-    <div class="zag-bg zag-border-b flex inset-x-0 h-auto text-xl border-none">
+    <div class="zag-bg zag-border-b flex inset-x-0 h-auto text-xl border-none min-w-0">
         { isHome? '' :
-            <div class="pl-0 sm:pl-4 py-4 h-auto mt-0 z-50 flex-nowrap">
+            <div class="pl-0 sm:pl-4 py-4 h-auto mt-0 z-50 shrink-0">
                 <Anchor url="/" class="font-bold text-red-800"> {config.personal.name} </Anchor>
             </div>
         }
