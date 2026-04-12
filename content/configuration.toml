@@ -35,7 +35,7 @@ cardImage = "https://rizqi.cy/image.png"
 title = "Rizqi Cahyo Yuwono"
 subtitle = "Part-time engineer, Full-time father and student"
 description = "An embedded systems engineer that currently on career break, enjoying student life (again) while immersing myself in ASIC development and open-source platforms."
-image = "https://rizqi.cy/image.png"
+image = "/image.png"
 ctaText = "My Projects"
 ctaUrl = "/projects"
 
