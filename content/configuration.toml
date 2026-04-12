@@ -1,0 +1,57 @@
+# Due to how Astro handles type inference with this structure,
+# we need to prefix all configuration keys with an underscore.
+
+[_.site]
+baseUrl = "https://rizqi.cy"
+
+[_.globalMeta]
+title = "rizqi.cy"
+description = "about me"
+longDescription = "personal website of "
+cardImage = "https://rizqi.cy/image.png"
+keywords = ["embedded system", "design", "tech"]
+
+[_.blogMeta]
+title = "rizqi.cy | Blog"
+description = "bubble up!"
+longDescription = "random thoughts, reminder, and reflection"
+cardImage = "https://rizqi.cy/image.png"
+keywords = ["embedded system", "design", "tech"]
+
+[_.projectMeta]
+title = "rizqi.cy | Projects"
+description = "experiments and innovate!"
+longDescription = "Things that keep me being distracted"
+cardImage = "https://rizqi.cy/image.png"
+keywords = ["embedded system", "design", "tech"]
+
+[_.notFoundMeta]
+title = "rizqi.cy | 404"
+description = "you are lost"
+longDescription = "The page you are looking for does not exist. You are in the wrong way :("
+cardImage = "https://rizqi.cy/image.png"
+
+[_.hero]
+title = "Rizqi Cahyo Yuwono"
+subtitle = "Part-time engineer, Full-time father and student"
+description = "An embedded systems engineer that currently on career break, enjoying student life (again) while immersing myself in ASIC development and open-source platforms."
+image = "/image.png"
+ctaText = "My Projects"
+ctaUrl = "/projects"
+
+[_.personal]
+name = "Rizqi Cahyo Yuwono"
+githubProfile = "https://github.com/rizqicy"
+twitterProfile = "https://x.com/"
+linkedinProfile = "https://linkedin.com/"
+
+[_.texts]
+articlesName = "Thoughts — Ideas"
+projectsName = "Projects"
+viewAll = "View All"
+noArticles = "Nothing..."
+noProjects = "Nothing..."
+
+[_.menu]
+projects = "/projects"
+blog = "/blog"
