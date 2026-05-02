@@ -13,7 +13,7 @@ export type Props = {
 const { title, description, url, githubUrl, liveUrl, tags } = Astro.props
 ---
 
-<div class="hover-zag-dotted-grid relative mb-8 flex flex-col gap-3">
+<div class="hover-zag-dotted-grid relative mb-12 flex flex-col gap-1">
     <div class="flex flex-col gap-3 sm:flex-row sm:justify-between">
         <Anchor url={url} class="text-xl">
             {title}
@@ -21,21 +21,21 @@ const { title, description, url, githubUrl, liveUrl, tags } = Astro.props
         <div class="flex gap-2">
             {
                 githubUrl ? (
-                    <Anchor url={githubUrl} class="text-base" external>
+                    <Anchor url={githubUrl} class="text-sm" external>
                         GitHub
                     </Anchor>
                 ) : null
             }
             {
                 liveUrl ? (
-                    <Anchor url={liveUrl} class="text-base" external>
+                    <Anchor url={liveUrl} class="text-sm" external>
                         Live
                     </Anchor>
                 ) : null
             }
         </div>
     </div>
-    <p class="zag-text zag-transition">
+    <p class="italic">
         {description}
     </p>
     <div class="flex flex-row flex-wrap gap-2">
