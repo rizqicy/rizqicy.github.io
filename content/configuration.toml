@@ -53,5 +53,5 @@ noArticles = "Nothing..."
 noProjects = "Nothing..."
 
 [_.menu]
-# projects = "/projects"
-blog = "/blog"
+# Projects = "/projects"
+Blog = "/blog"
