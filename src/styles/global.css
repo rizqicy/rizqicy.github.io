@@ -1,7 +1,7 @@
-@import "tailwindcss";
-@import "inter-ui/inter-variable.css";
-@import "inter-ui/inter-display.css";
-@plugin "@tailwindcss/typography";
+@import 'tailwindcss';
+@import 'inter-ui/inter-variable.css';
+@import 'inter-ui/inter-display.css';
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -10,200 +10,202 @@
 */
 
 @theme {
-  --font-mono: "IBM plex Mono", ui-monospace, monospace;
-  --font-display: "InterDisplay", ui-monospace, monospace;
-  --font-sans: "InterVariable",ui-sans-serif, Arial;
-  --font-serif: "Noto Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --color-zag-dark: var(--color-neutral-900);
-  --color-zag-dark-opaque: oklch(from var(--color-neutral-900) l c h / 0.5);
-  --color-zag-light: var(--color-neutral-100);
-  --color-zag-light-opaque: oklch(from var(--color-neutral-100) l c h / 0.5);
-  --color-zag-dark-muted: var(--color-neutral-600);
-  --color-zag-light-muted: var(--color-neutral-400);
-  --color-zag-accent-light: var(--color-emerald-400);
-  --color-zag-accent-light-muted: var(--color-emerald-300);
-  --color-zag-accent-dark: var(--color-emerald-600);
-  --color-zag-accent-dark-muted: var(--color-emerald-800);
+    --font-mono: 'IBM plex Mono', ui-monospace, monospace;
+    --font-display: 'InterDisplay', ui-monospace, monospace;
+    --font-sans: 'InterVariable', ui-sans-serif, Arial;
+    --font-serif:
+        'Noto Serif', ui-serif, Georgia, Cambria, 'Times New Roman', Times,
+        serif;
+    --color-zag-dark: var(--color-neutral-900);
+    --color-zag-dark-opaque: oklch(from var(--color-neutral-900) l c h / 0.5);
+    --color-zag-light: var(--color-neutral-100);
+    --color-zag-light-opaque: oklch(from var(--color-neutral-100) l c h / 0.5);
+    --color-zag-dark-muted: var(--color-neutral-600);
+    --color-zag-light-muted: var(--color-neutral-400);
+    --color-zag-accent-light: var(--color-emerald-400);
+    --color-zag-accent-light-muted: var(--color-emerald-300);
+    --color-zag-accent-dark: var(--color-emerald-600);
+    --color-zag-accent-dark-muted: var(--color-emerald-800);
 }
 
 @layer base {
-  html{
-    scroll-padding-top: 5rem;
-  }
-
-  :root {
-    --zag-stroke: 2px;
-    --zag-offset: 6px;
-    --zag-transition-duration: 0.15s;
-    --zag-transition-timing-function: ease-in-out;
-  }
-
-  ::selection {
-    background-color: var(--color-zag-accent-light);
-    color: var(--color-zag-dark-muted);
-  }
-
-  .zag-transition {
-    @media (prefers-reduced-motion: no-preference) {
-      transition:
-        background-color var(--zag-transition-duration)
-        var(--zag-transition-timing-function),
-        color var(--zag-transition-duration)
-        var(--zag-transition-timing-function),
-        fill var(--zag-transition-duration)
-        var(--zag-transition-timing-function),
-        border-color var(--zag-transition-duration)
-        var(--zag-transition-timing-function),
-        transform var(--zag-transition-duration)
-        var(--zag-transition-timing-function);
+    html {
+        scroll-padding-top: 5rem;
     }
-  }
 
-  .zag-bg {
-    background-color: var(--color-zag-light);
-    :where(.dark, .dark *) & {
-      background-color: var(--color-zag-dark);
+    :root {
+        --zag-stroke: 2px;
+        --zag-offset: 6px;
+        --zag-transition-duration: 0.15s;
+        --zag-transition-timing-function: ease-in-out;
     }
-  }
 
-  .-zag-bg {
-    background-color: var(--color-zag-dark);
-    :where(.dark, .dark *) & {
-      background-color: var(--color-zag-light);
+    ::selection {
+        background-color: var(--color-zag-accent-light);
+        color: var(--color-zag-dark-muted);
     }
-  }
 
-  .zag-text {
-    color: var(--color-zag-dark);
-    :where(.dark, .dark *) & {
-      color: var(--color-zag-light);
+    .zag-transition {
+        @media (prefers-reduced-motion: no-preference) {
+            transition:
+                background-color var(--zag-transition-duration)
+                    var(--zag-transition-timing-function),
+                color var(--zag-transition-duration)
+                    var(--zag-transition-timing-function),
+                fill var(--zag-transition-duration)
+                    var(--zag-transition-timing-function),
+                border-color var(--zag-transition-duration)
+                    var(--zag-transition-timing-function),
+                transform var(--zag-transition-duration)
+                    var(--zag-transition-timing-function);
+        }
     }
-  }
 
-  .-zag-text {
-    color: var(--color-zag-light);
-    :where(.dark, .dark *) & {
-      color: var(--color-zag-dark);
+    .zag-bg {
+        background-color: var(--color-zag-light);
+        :where(.dark, .dark *) & {
+            background-color: var(--color-zag-dark);
+        }
     }
-  }
 
-  .zag-muted {
-    color: var(--color-zag-dark-muted);
-    :where(.dark, .dark *) & {
-      color: var(--color-zag-light-muted);
+    .-zag-bg {
+        background-color: var(--color-zag-dark);
+        :where(.dark, .dark *) & {
+            background-color: var(--color-zag-light);
+        }
     }
-  }
 
-  .zag-fill {
-    fill: var(--color-zag-dark);
-    &:where(.dark, .dark *) {
-      fill: var(--color-zag-light);
+    .zag-text {
+        color: var(--color-zag-dark);
+        :where(.dark, .dark *) & {
+            color: var(--color-zag-light);
+        }
     }
-  }
 
-  .zag-text-muted {
-    color: var(--color-zag-dark-muted);
-    &:where(.dark, .dark *) {
-      color: var(--color-zag-light-muted);
+    .-zag-text {
+        color: var(--color-zag-light);
+        :where(.dark, .dark *) & {
+            color: var(--color-zag-dark);
+        }
     }
-  }
 
-  .zag-border-r {
-    border-right: var(--zag-stroke) solid;
-    border-color: var(--color-zag-dark);
-    &:where(.dark, .dark *) {
-      border-color: var(--color-zag-light);
+    .zag-muted {
+        color: var(--color-zag-dark-muted);
+        :where(.dark, .dark *) & {
+            color: var(--color-zag-light-muted);
+        }
     }
-  }
-  .zag-border-l {
-    border-left: var(--zag-stroke) solid;
-    border-color: var(--color-zag-dark);
-    &:where(.dark, .dark *) {
-      border-color: var(--color-zag-light);
+
+    .zag-fill {
+        fill: var(--color-zag-dark);
+        &:where(.dark, .dark *) {
+            fill: var(--color-zag-light);
+        }
     }
-  }
-  .zag-border-b {
-    border-bottom: var(--zag-stroke) solid;
-    border-color: var(--color-zag-dark);
-    &:where(.dark, .dark *) {
-      border-color: var(--color-zag-light);
+
+    .zag-text-muted {
+        color: var(--color-zag-dark-muted);
+        &:where(.dark, .dark *) {
+            color: var(--color-zag-light-muted);
+        }
     }
-  }
 
-  .zag-border-t {
-    border-top: var(--zag-stroke) solid;
-    border-color: var(--color-zag-dark);
-    &:where(.dark, .dark *) {
-      border-color: var(--color-zag-light);
+    .zag-border-r {
+        border-right: var(--zag-stroke) solid;
+        border-color: var(--color-zag-dark);
+        &:where(.dark, .dark *) {
+            border-color: var(--color-zag-light);
+        }
     }
-  }
+    .zag-border-l {
+        border-left: var(--zag-stroke) solid;
+        border-color: var(--color-zag-dark);
+        &:where(.dark, .dark *) {
+            border-color: var(--color-zag-light);
+        }
+    }
+    .zag-border-b {
+        border-bottom: var(--zag-stroke) solid;
+        border-color: var(--color-zag-dark);
+        &:where(.dark, .dark *) {
+            border-color: var(--color-zag-light);
+        }
+    }
 
-  .zag-offset {
-    text-underline-offset: var(--zag-offset);
-  }
+    .zag-border-t {
+        border-top: var(--zag-stroke) solid;
+        border-color: var(--color-zag-dark);
+        &:where(.dark, .dark *) {
+            border-color: var(--color-zag-light);
+        }
+    }
 
-  .hover-zag-dotted-grid:hover::before {
-    --dot-bg: var(--color-zag-light);
-    --dot-color: var(--color-zag-dark-muted);
-    --dot-size: 1.5px;
-    --dot-space: 16px;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    z-index: -1;
-    background:
-      linear-gradient(
-        90deg,
-        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-        transparent 1%
-      )
-      bottom right / var(--dot-space) var(--dot-space),
-      linear-gradient(
-        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-        transparent 1%
-      )
-      bottom right / var(--dot-space) var(--dot-space),
-      var(--dot-color);
-    pointer-events: none;
-  }
+    .zag-offset {
+        text-underline-offset: var(--zag-offset);
+    }
 
-  :where(.dark, .dark *) .hover-zag-dotted-grid:hover::before {
-    --dot-bg: var(--color-zag-dark);
-    --dot-color: var(--color-zag-light-muted);
-  }
+    .hover-zag-dotted-grid:hover::before {
+        --dot-bg: var(--color-zag-light);
+        --dot-color: var(--color-zag-dark-muted);
+        --dot-size: 1.5px;
+        --dot-space: 16px;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: -1;
+        background:
+            linear-gradient(
+                    90deg,
+                    var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+                    transparent 1%
+                )
+                bottom right / var(--dot-space) var(--dot-space),
+            linear-gradient(
+                    var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+                    transparent 1%
+                )
+                bottom right / var(--dot-space) var(--dot-space),
+            var(--dot-color);
+        pointer-events: none;
+    }
 
-  .hover-zag-dotted-grid:hover::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    z-index: -1;
-    background: linear-gradient(
-      159deg,
-      var(--color-zag-light) 0%,
-      var(--color-zag-light) 50%,
-      var(--color-zag-light-opaque) 100%
-    );
-    pointer-events: none;
-  }
+    :where(.dark, .dark *) .hover-zag-dotted-grid:hover::before {
+        --dot-bg: var(--color-zag-dark);
+        --dot-color: var(--color-zag-light-muted);
+    }
 
-  :where(.dark, .dark *) .hover-zag-dotted-grid:hover::after {
-    background: linear-gradient(
-      159deg,
-      var(--color-zag-dark) 0%,
-      var(--color-zag-dark) 50%,
-      var(--color-zag-dark-opaque) 100%
-    );
-  }
+    .hover-zag-dotted-grid:hover::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: -1;
+        background: linear-gradient(
+            159deg,
+            var(--color-zag-light) 0%,
+            var(--color-zag-light) 50%,
+            var(--color-zag-light-opaque) 100%
+        );
+        pointer-events: none;
+    }
 
-  .opsz {
-    font-variation-settings: "opsz" 72;
-  }
+    :where(.dark, .dark *) .hover-zag-dotted-grid:hover::after {
+        background: linear-gradient(
+            159deg,
+            var(--color-zag-dark) 0%,
+            var(--color-zag-dark) 50%,
+            var(--color-zag-dark-opaque) 100%
+        );
+    }
+
+    .opsz {
+        font-variation-settings: 'opsz' 72;
+    }
 }

@@ -1,81 +1,85 @@
 ---
-import BlogSection from "../components/BlogSection.astro";
-import Prose from "../components/Prose.astro";
-import TableOfContents from "../components/TableOfContents.astro";
-import type { ArticleFrontmatter } from "../lib/types";
-import { getConfigurationCollection, processArticleDate } from "../lib/utils";
-import Layout from "./Layout.astro";
+import BlogSection from '../components/BlogSection.astro'
+import Prose from '../components/Prose.astro'
+import TableOfContents from '../components/TableOfContents.astro'
+import type { ArticleFrontmatter } from '../lib/types'
+import { getConfigurationCollection, processArticleDate } from '../lib/utils'
+import Layout from './Layout.astro'
 
-type Props = { frontmatter: ArticleFrontmatter };
+type Props = { frontmatter: ArticleFrontmatter }
 
-const { frontmatter } = Astro.props;
-const articleDate = processArticleDate(frontmatter.timestamp);
-const { data: config } = await getConfigurationCollection();
+const { frontmatter } = Astro.props
+const articleDate = processArticleDate(frontmatter.timestamp)
+const { data: config } = await getConfigurationCollection()
 ---
 
 <Layout>
-  <Fragment slot="head">
-    <title>{`${frontmatter.title} • ${config.personal.name}`}</title>
-    <meta
-      name="description"
-      content={frontmatter.longDescription ?? frontmatter.description}
-    />
-    <meta
-      property="og:title"
-      content={`${frontmatter.title} • ${config.personal.name}`}
-    />
-    <meta property="og:description" content={frontmatter.description} />
-    {
-      frontmatter.tags && (
-        <meta name="keywords" content={frontmatter.tags.join(", ")} />
-      )
-    }
-    {
-      frontmatter.cardImage && (
-        <meta property="og:image" content={frontmatter.cardImage} />
-      )
-    }
-    <meta
-      property="og:url"
-      content={`${config.site.baseUrl}/blog/${frontmatter.slug}`}
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content={`${frontmatter.title} • ${config.personal.name}`}
-    />
-    <meta name="twitter:description" content={frontmatter.description} />
-    {
-      frontmatter.cardImage && (
-        <meta name="twitter:image" content={frontmatter.cardImage} />
-      )
-    }
-    <meta http-equiv="content-language" content="en" />
-    <meta name="language" content="English" />
-    <link
-      rel="canonical"
-      href={`${config.site.baseUrl}/blog/${frontmatter.slug}`}
-    />
-  </Fragment>
-  <div class="flex max-w-6xl justify-center md:flex-row flex-col p-4 mx-auto">
+    <Fragment slot="head">
+        <title>{`${frontmatter.title} • ${config.personal.name}`}</title>
+        <meta
+            name="description"
+            content={frontmatter.longDescription ?? frontmatter.description}
+        />
+        <meta
+            property="og:title"
+            content={`${frontmatter.title} • ${config.personal.name}`}
+        />
+        <meta property="og:description" content={frontmatter.description} />
         {
-        (frontmatter.headings.length > 0)? <TableOfContents headings={frontmatter.headings}/> : ''
+            frontmatter.tags && (
+                <meta name="keywords" content={frontmatter.tags.join(', ')} />
+            )
         }
-  <BlogSection class="pt-8 max-w-2xl">
-    <div class="flex flex-col gap-4 mt-8 mb-16">
-      <h1
-        class="text-3xl sm:text-4xl leading-normal sm:leading-normal font-display"
-      >
-        {frontmatter.title}
-      </h1>
-      <div class="flex justify-between">
-        <span>{articleDate}</span>
-        <span>{frontmatter.readTime} min</span>
-      </div>
+        {
+            frontmatter.cardImage && (
+                <meta property="og:image" content={frontmatter.cardImage} />
+            )
+        }
+        <meta
+            property="og:url"
+            content={`${config.site.baseUrl}/blog/${frontmatter.slug}`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content={`${frontmatter.title} • ${config.personal.name}`}
+        />
+        <meta name="twitter:description" content={frontmatter.description} />
+        {
+            frontmatter.cardImage && (
+                <meta name="twitter:image" content={frontmatter.cardImage} />
+            )
+        }
+        <meta http-equiv="content-language" content="en" />
+        <meta name="language" content="English" />
+        <link
+            rel="canonical"
+            href={`${config.site.baseUrl}/blog/${frontmatter.slug}`}
+        />
+    </Fragment>
+    <div class="mx-auto flex max-w-6xl flex-col justify-center p-4 md:flex-row">
+        {
+            frontmatter.headings.length > 0 ? (
+                <TableOfContents headings={frontmatter.headings} />
+            ) : (
+                ''
+            )
+        }
+        <BlogSection class="max-w-2xl pt-8">
+            <div class="mt-8 mb-16 flex flex-col gap-4">
+                <h1
+                    class="font-display text-3xl leading-normal sm:text-4xl sm:leading-normal"
+                >
+                    {frontmatter.title}
+                </h1>
+                <div class="flex justify-between">
+                    <span>{articleDate}</span>
+                    <span>{frontmatter.readTime} min</span>
+                </div>
+            </div>
+            <Prose>
+                <slot />
+            </Prose>
+        </BlogSection>
     </div>
-    <Prose>
-      <slot />
-    </Prose>
-  </BlogSection>
-  </div>
 </Layout>

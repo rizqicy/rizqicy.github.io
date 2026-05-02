@@ -1,8 +1,8 @@
 ---
 title: Hello World
 slug: hello-world
-description: "Full-stack developer wannabe"
-tags: ["code", "web"]
+description: 'Full-stack developer wannabe'
+tags: ['code', 'web']
 readTime: 0
 featured: false
 timestamp: 2023-11-20T16:13:53+07:00

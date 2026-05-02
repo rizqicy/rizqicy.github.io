@@ -1,52 +1,55 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import "../styles/global.css";
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import '../styles/global.css'
 
-const { isHome } = Astro.props;
+const { isHome } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.bunny.net" />
-    <link
-      href="https://fonts.bunny.net/css?family=ibm-plex-mono:400,400i,500,500i,600,600i,700,700i"
-      rel="stylesheet"
-    />
-    
-    <!-- Theme detection script - runs before page renders -->
-    <script is:inline>
-      const theme = (() => {
-        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-          return localStorage.getItem("theme") ?? "light";
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return "light";
-      })();
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="preconnect" href="https://fonts.bunny.net" />
+        <link
+            href="https://fonts.bunny.net/css?family=ibm-plex-mono:400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet"
+        />
 
-      if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
-      }
+        <!-- Theme detection script - runs before page renders -->
+        <script is:inline>
+            const theme = (() => {
+                if (
+                    typeof localStorage !== 'undefined' &&
+                    localStorage.getItem('theme')
+                ) {
+                    return localStorage.getItem('theme') ?? 'light'
+                }
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    return 'dark'
+                }
+                return 'light'
+            })()
 
-      window.localStorage.setItem("theme", theme);
-    </script>
-    
-    <slot name="head" />
-  </head>
-  <body class="zag-bg zag-text zag-transition font-sans">
-    <Header isHome={isHome} />
-    <main>
-      <slot />
-    </main>
-    <Footer />
-  </body>
+            if (theme === 'light') {
+                document.documentElement.classList.remove('dark')
+            } else {
+                document.documentElement.classList.add('dark')
+            }
+
+            window.localStorage.setItem('theme', theme)
+        </script>
+
+        <slot name="head" />
+    </head>
+    <body class="zag-bg zag-text zag-transition font-sans">
+        <Header isHome={isHome} />
+        <main>
+            <slot />
+        </main>
+        <Footer />
+    </body>
 </html>
