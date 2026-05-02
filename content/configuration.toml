@@ -18,12 +18,12 @@ longDescription = "random thoughts, reminder, and reflection"
 cardImage = "https://rizqi.cy/image.png"
 keywords = ["embedded system", "design", "tech"]
 
-[_.projectMeta]
-title = "rizqi.cy | Projects"
-description = "experiments and innovate!"
-longDescription = "Things that keep me being distracted"
-cardImage = "https://rizqi.cy/image.png"
-keywords = ["embedded system", "design", "tech"]
+# [_.projectMeta]
+# title = "rizqi.cy | Projects"
+# description = "experiments and innovate!"
+# longDescription = "Things that keep me being distracted"
+# cardImage = "https://rizqi.cy/image.png"
+# keywords = ["embedded system", "design", "tech"]
 
 [_.notFoundMeta]
 title = "rizqi.cy | 404"
@@ -36,8 +36,8 @@ title = "Rizqi Cahyo Yuwono"
 subtitle = "Part-time engineer, Full-time father and student"
 description = "An embedded systems engineer that currently on career break, enjoying student life (again) while immersing myself in ASIC development and open-source platforms."
 image = "/image.png"
-ctaText = "My Projects"
-ctaUrl = "/projects"
+# ctaText = "My Projects"
+# ctaUrl = "/projects"
 
 [_.personal]
 name = "Rizqi Cahyo Yuwono"
@@ -47,11 +47,11 @@ linkedinProfile = "https://linkedin.com/"
 
 [_.texts]
 articlesName = "Thoughts — Ideas"
-projectsName = "Projects"
+# projectsName = "Projects"
 viewAll = "View All"
 noArticles = "Nothing..."
 noProjects = "Nothing..."
 
 [_.menu]
-projects = "/projects"
+# projects = "/projects"
 blog = "/blog"

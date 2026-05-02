@@ -114,32 +114,32 @@ const configuration = defineCollection({
         /**
          * The project page's metadata.
          */
-        projectMeta: z.object({
-            /**
-             * The title of the page, used in the HTML `<title>` tag and Open Graph metadata.
-             */
-            title: z.string(),
+        // projectMeta: z.object({
+        //     /**
+        //      * The title of the page, used in the HTML `<title>` tag and Open Graph metadata.
+        //      */
+        //     title: z.string(),
 
-            /**
-             * The short description of the page, used in Open Graph metadata and as a fallback for SEO.
-             */
-            description: z.string(),
+        //     /**
+        //      * The short description of the page, used in Open Graph metadata and as a fallback for SEO.
+        //      */
+        //     description: z.string(),
 
-            /**
-             * The long description of the page, used in Open Graph metadata and as a fallback for SEO.
-             */
-            longDescription: z.string().optional(),
+        //     /**
+        //      * The long description of the page, used in Open Graph metadata and as a fallback for SEO.
+        //      */
+        //     longDescription: z.string().optional(),
 
-            /**
-             * The URL of the card image for social media sharing.
-             */
-            cardImage: z.url().optional(),
+        //     /**
+        //      * The URL of the card image for social media sharing.
+        //      */
+        //     cardImage: z.url().optional(),
 
-            /**
-             * Keywords for SEO, used in the `<meta name="keywords">` tag.
-             */
-            keywords: z.array(z.string()).optional(),
-        }),
+        //     /**
+        //      * Keywords for SEO, used in the `<meta name="keywords">` tag.
+        //      */
+        //     keywords: z.array(z.string()).optional(),
+        // }),
 
         /**
          * The hero section configuration.
@@ -236,7 +236,7 @@ const configuration = defineCollection({
          * This defines the URLs for the main navigation links.
          */
         menu: z.object({
-            projects: z.string().default('/projects'),
+            // projects: z.string().default('/projects'),
             blog: z.string().default('/blog'),
             /** Add other menu items here **/
         }),
